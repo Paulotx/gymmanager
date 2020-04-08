@@ -1,6 +1,6 @@
 const Intl = require("intl");
 const { age, date } = require('../../lib/utils');
-const Instructor = require("../models/instructor");
+const Instructor = require("../models/Instructor");
 
 module.exports = {
     index(req, res){
@@ -32,7 +32,7 @@ module.exports = {
         ];
 
         Instructor.create(values, function(instructor) {
-            return res.redirect(`/instructor/${ instructor.id }`);
+            return res.redirect(`/instructors/${ instructor.id }`);
         });
     },
 
@@ -81,8 +81,6 @@ module.exports = {
         Instructor.update(values, function(){
             return res.redirect(`/instructors/${ req.body.id }`);
         });
-
-        return;
     },
 
     delete(req, res){
